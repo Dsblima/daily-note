@@ -38,7 +38,7 @@ ipcMain.handle(
 
     const doc: Document = {
       id,
-      title: 'untitled',
+      title: 'Untitled',
     }
 
     store.set(`documents.${id}`, doc)

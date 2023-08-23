@@ -5,9 +5,9 @@ import * as path from 'node:path'
 
 import './ipc'
 import './store'
+import { createTray } from './tray'
 
 function createWindow(): void {
-  // Create the browser window.
   const mainWindow = new BrowserWindow({
     width: 1120,
     height: 700,
@@ -21,7 +21,9 @@ function createWindow(): void {
       sandbox: false,
     },
   })
-  console.log(__dirname)
+
+  createTray(mainWindow)
+
   mainWindow.setOverlayIcon(
     nativeImage.createFromPath(__dirname + 'icon.png'),
     'Description for overlay',

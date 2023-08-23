@@ -3,6 +3,7 @@ import { BrowserWindow, app, nativeImage, shell } from 'electron'
 import { createFileRoute, createURLRoute } from 'electron-router-dom'
 import * as path from 'node:path'
 
+import { createHotkeys } from './hotkeys'
 import './ipc'
 import './store'
 import { createTray } from './tray'
@@ -23,6 +24,7 @@ function createWindow(): void {
   })
 
   createTray(mainWindow)
+  createHotkeys(mainWindow)
 
   mainWindow.setOverlayIcon(
     nativeImage.createFromPath(__dirname + 'icon.png'),
